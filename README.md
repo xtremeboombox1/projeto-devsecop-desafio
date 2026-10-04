@@ -75,8 +75,11 @@ package.json:
 
 Extensão GitGuardian – Análise
 Findings > No secrets detected yet
-
+#1 commit: cc1ee93e7cc17072bade95cb2e9a2a526605b442
 > Descreva cada step, o que ele faz e por que ele é importante para a segurança.
+* criar chaves no repositório API_KEY e DB_PASSWORD para a segurança da aplicação, evitando vazamentos e usos indevidos
+* na fase gitleaks irá verificar se existem chaves expostas e usando o princípio shift left impediria o prosseguimento do pipeline abortando o job
+* sonarqube não acusou mais credencial exposta
 
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
