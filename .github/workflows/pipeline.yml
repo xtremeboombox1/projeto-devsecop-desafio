@@ -46,7 +46,6 @@ jobs:
           ls src/
           echo "Build OK!"
 
-      # ❌ PASSO A IMPLEMENTAR — Secrets Scanning com Gitleaks
       # Dica: use a action oficial "gitleaks/gitleaks-action@v2" e passe o
       - name: 🔑 Secrets Scanning
         uses: gitleaks/gitleaks-action@v2
@@ -56,8 +55,15 @@ jobs:
       # ❌ PASSO A IMPLEMENTAR — SAST com Semgrep
       # Dica: instale com "pip install semgrep" e rode
       #   semgrep scan --config auto --config p/xss --error src/
-      - name: 🔍 SAST - Semgrep
-        run: echo "TODO - implemente o SAST com Semgrep aqui"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+        
+      - name: SAST - Semgrep
+        run: |
+          pip install semgrep
+          semgrep scan --config auto --config p/xss --error src/
 
       # ❌ PASSO A IMPLEMENTAR — SCA com Grype
       # Dica: primeiro, gere o package-lock pelo npm:

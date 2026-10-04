@@ -80,6 +80,47 @@ Findings > No secrets detected yet
 * criar chaves no repositório API_KEY e DB_PASSWORD para a segurança da aplicação, evitando vazamentos e usos indevidos
 * na fase gitleaks irá verificar se existem chaves expostas e usando o princípio shift left impediria o prosseguimento do pipeline abortando o job
 * sonarqube não acusou mais credencial exposta
+#2 commit: 128bdc824d32ec061fc17f0ceefbc94c48c4d35d
+GitHub Actions
+Status  Duração Artefatos
+FALHA   25s     2
+-Set up job                  [ok]
+-Baixar o artefato assinado  [ok]
+-Instalar Cosign             [ok]
+-Extrair site verificado     [ok]
+-Configurar GitHub Pages     [X]
+
+Resumo de Construção, Segurança e Assinatura
+Nenhum vazamento detectado
+
+*inclusão do semgrep
+Terminal:  docker run --rm -v "${PWD}:/src" semgrep/semgrep semgrep scan --config auto --config p/xss --error .
+Scan Status
+Scanning 4 files tracked by git with 1067 code rules:
+Scanning 4 files tracked by git with 1076 Code rules:
+
+  Language      Rules   Files          Origin      Rules
+ ─────────────────────────────        ───────────────────
+  <multilang>      60       4          Community    1076
+  js              154       1
+  json              4       1
+  html              1       1
+
+em src/script.js
+Javascript.browser.security.eval-detected.eval-detected
+<<Blocking>>
+Detected the use of eval(). eval() can be dangerous if used to evaluate dynamic contente. If this 
+│ Scan Summary │
+✅ Scan completed successfully.
+ • Findings: 1 (1 blocking)
+ • Rules run: 252
+ • Targets scanned: 9
+ • Parsed lines: ~100.0%
+ • Scan was limited to files tracked by git
+ • For a detailed list of skipped files and lines, run semgrep with the --verbose flag
+Ran 252 rules on 9 files: 1 finding.Ensure evaluated contente is not definable by external sources
+Details: https://sg.run/7ope
+29 eval ‘console.log(“Tarefa adicionada: ‘ + input.value + ‘”);
 
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
