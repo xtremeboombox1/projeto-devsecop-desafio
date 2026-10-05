@@ -209,5 +209,89 @@ Após o script rodar o semgrep não apontou vulnerabilidades
 Ran 255 rules on 10 files: 0 findings.
 (need more rules? `semgrep login` for additional free Semgrep Registry rules)
 
+#4 commit: d9be41e01aea65bbbec849501934c99538409dd3
+GitHub Actions
+Status  Duração Artefatos
+FALHA   39s     2
+
+Nenhum vazamento detectado
+[x] Verificação e Implantação: HttpError: Não Encontrado
+[x] Verificação e Implantação: A obtenção do site Pages falhou. Verifique se o repositório tem as páginas habilitadas e configuradas para compilar usando o GitHub Actions ou considere explorar o parâmetro `enablement` ...
+
+-Set up job                   [ok]
+-Baixar o artefato assinado   [ok]
+-Instalar Cosign              [ok]
+-Extrair site verificado      [ok]
+-Configurar GitHub Pages      [x]
+
+rodei a imagem grype na raíz do projeto => docker run --rm -v "${pwd}:/src" anchore/grype:latest dir:/src
+obtivemos:
+
+NAME                       INSTALLED  FIXED IN  TYPE           VULNERABILITY        SEVERITY  EPSS          RISK   
+lodash                     4.17.4     4.17.21   npm            GHSA-35jh-r3h4-6jhm  High      21.3% (97th)  15.7   
+qs                         6.7.0      6.7.3     npm            GHSA-hrpp-h998-j3pp  High      15.6% (96th)  11.7   
+axios                      0.21.1     0.21.2    npm            GHSA-cph5-m8f7-6c5x  High      8.5% (94th)   6.4    
+lodash                     4.17.4     4.17.12   npm            GHSA-jf85-cpcp-j695  Critical  5.0% (91st)   4.5    
+lodash                     4.17.4     4.17.19   npm            GHSA-p6mc-m468-83gw  High      5.2% (92nd)   3.9    
+lodash                     4.17.4     4.17.21   npm            GHSA-29mw-wpgm-hmr9  Medium    7.3% (94th)   3.8    
+lodash                     4.17.4     4.18.0    npm            GHSA-r5fr-rjxr-66jc  High      2.6% (84th)   2.0    
+lodash                     4.17.4     4.17.11   npm            GHSA-x5rq-j2xg-h7qm  Medium    3.2% (87th)   1.8    
+lodash                     4.17.4     4.17.5    npm            GHSA-fvqr-27wr-82fm  Medium    2.4% (83rd)   1.4    
+axios                      0.21.1     0.30.3    npm            GHSA-43fc-jf86-j433  High      1.8% (77th)   1.4    
+lodash                     4.17.4     4.17.11   npm            GHSA-4xc9-xhrj-v574  High      1.6% (74th)   1.2    
+lodash                     4.17.4     4.17.23   npm            GHSA-xxjr-mmjv-4gpg  Medium    1.8% (78th)   1.1    
+axios                      0.21.1     0.31.1    npm            GHSA-3g43-6gmg-66jw  High      1.0% (62nd)   0.8    
+axios                      0.21.1     0.32.0    npm            GHSA-hfxv-24rg-xrqf  High      1.0% (60th)   0.7    
+path-to-regexp             0.1.7      0.1.10    npm            GHSA-9wv6-86v2-598j  High      0.9% (59th)   0.7    
+axios                      0.21.1     0.31.1    npm            GHSA-pf86-5x62-jrwf  High      0.9% (59th)   0.7    
+body-parser                1.19.0     1.20.3    npm            GHSA-qwcr-r2fm-qrc7  High      0.8% (55th)   0.6    
+axios                      0.21.1     0.31.0    npm            GHSA-fvcv-3m26-pcqx  Medium    1.3% (69th)   0.6    
+axios                      0.21.1     0.32.0    npm            GHSA-pjwm-pj3p-43mv  High      0.8% (54th)   0.6    
+axios                      0.21.1     0.31.0    npm            GHSA-3p68-rc4w-qgx5  Medium    1.2% (66th)   0.6    
+axios                      0.21.1     0.30.0    npm            GHSA-jr5f-v2jv-69x6  High      0.8% (54th)   0.6    
+axios                      0.21.1     0.32.0    npm            GHSA-p92q-9vqr-4j8v  High      0.8% (53rd)   0.6    
+path-to-regexp             0.1.7      0.1.12    npm            GHSA-rhx6-c78j-4q9w  High      0.8% (54th)   0.6    
+axios                      0.21.1     0.31.1    npm            GHSA-62hf-57xw-28j9  Medium    1.0% (60th)   0.6    
+axios                      0.21.1     0.32.0    npm            GHSA-j5f8-grm9-p9fc  High      0.8% (53rd)   0.6    
+path-to-regexp             0.1.7      0.1.13    npm            GHSA-37ch-88jc-xwx2  High      0.6% (47th)   0.5    
+express                    4.17.1     4.19.2    npm            GHSA-rv95-896h-c2vc  Medium    0.8% (54th)   0.4    
+axios                      0.21.1     0.31.1    npm            GHSA-pmwg-cvhr-8vh7  High      0.6% (45th)   0.4    
+axios                      0.21.1     0.31.1    npm            GHSA-w9j2-pvgh-6h63  Medium    0.8% (55th)   0.4    
+axios                      0.21.1     0.28.0    npm            GHSA-wf5p-g6vw-rhxx  Medium    0.6% (44th)   0.3    
+axios                      0.21.1     0.31.1    npm            GHSA-6chq-wfr3-2hj9  High      0.4% (29th)   0.3    
+axios                      0.21.1     0.31.1    npm            GHSA-5c9x-8gcm-mpgx  Medium    0.5% (39th)   0.2    
+axios                      0.21.1     0.31.1    npm            GHSA-vf2m-468p-8v99  Medium    0.5% (39th)   0.2    
+axios                      0.21.1     0.33.0    npm            GHSA-mmx7-hfxf-jppx  Medium    0.4% (34th)   0.2    
+qs                         6.7.0      6.16.0    npm            GHSA-4mjr-xmp4-gh2g  Medium    0.4% (33rd)   0.2    
+qs                         6.7.0      6.14.1    npm            GHSA-6rw7-vpxm-498p  Medium    0.4% (36th)   0.2    
+axios                      0.21.1     0.31.1    npm            GHSA-m7pr-hjqh-92cm  Medium    0.4% (29th)   0.2    
+cookie                     0.4.0      0.7.0     npm            GHSA-pxg6-pf52-xh8x  Low       0.7% (53rd)   0.2    
+lodash                     4.17.4     4.18.0    npm            GHSA-f23m-r3pf-42rh  Medium    0.4% (29th)   0.2    
+serve-static               1.14.1     1.16.0    npm            GHSA-cm22-4g7w-348p  Low       0.6% (48th)   0.2    
+axios                      0.21.1     0.32.0    npm            GHSA-898c-q2cr-xwhg  Medium    0.4% (32nd)   0.2    
+send                       0.17.1     0.19.0    npm            GHSA-m6fv-jmcg-4jfg  Low       0.5% (43rd)   0.2    
+axios                      0.21.1     0.33.0    npm            GHSA-7q8q-rj6j-mhjq  Medium    0.3% (22nd)   0.2    
+qs                         6.7.0      6.14.2    npm            GHSA-w7fw-mjwx-w883  Low       0.5% (41st)   0.2    
+axios                      0.21.1     0.31.1    npm            GHSA-xx6v-rp6x-q39c  Medium    0.3% (23rd)   0.2    
+express                    4.17.1     4.20.0    npm            GHSA-qw6h-vgh9-j6wx  Low       0.5% (39th)   0.2    
+body-parser                1.19.0     1.20.6    npm            GHSA-v422-hmwv-36x6  Low       0.4% (33rd)   0.1    
+axios                      0.21.1     0.31.1    npm            GHSA-xhjh-pmcv-23jw  Low       0.3% (16th)   < 0.1  
+actions/download-artifact  v4         4.1.3     github-action  GHSA-cxww-7g56-2vh6  High      N/A           N/A
+
+Após a análise inicial do grype fizemos mapeamento das bibliotecas que precisavam ser atualizadas e pouco a pouco foram ajsutadas, além do grype a extensão Snyk ao rodar também apontava atualizações necessárias e assim rodando o grype  e vendo o Snyk fomos adequando o projeto.
+
+Ainda tinha uma vulnerabilidade apontada pelo grype em actions/download-artifact 'v4'
+Usando o comando  git ls-remote --tags --refs https://github.com/actions/download-artifact 'v4.*' | cut -f2 | sed 's
+|refs/tags/||' | sort -V | tail -1
+Obteve como saída v4.3.0 substituindo no pipeline.yml ficando => uses: actions/download-artifact@v4.3.0 # v4
+
+Saída do docker run --rm -v "${pwd}:/src" anchore/grype:latest dir:/src
+No vulnerabilities found
+
+Saída do Snyk
+Open Source> No open issues found
+Code Security> (disabled in Settings)
+Infrastructure As Code> No open issues found
+
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
