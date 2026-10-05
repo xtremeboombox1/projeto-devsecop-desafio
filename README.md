@@ -293,5 +293,20 @@ Open Source> No open issues found
 Code Security> (disabled in Settings)
 Infrastructure As Code> No open issues found
 
+#5 commit: e6120c1daa2d006db6a418e4223b5e46ae8e27b1
+GitHub Actions
+Status  Duração Artefatos
+FALHA   1m 16s     2
+
+Nenhum vazamento detectado
+[x] Verificação e Implantação: HttpError: Não Encontrado
+[x] Verificação e Implantação: A obtenção do site Pages falhou. Verifique se o repositório tem as páginas habilitadas e configuradas para compilar usando o GitHub Actions ou considere explorar o parâmetro `enablement` ...
+
+-Set up job                   [ok]
+-Baixar o artefato assinado   [ok]
+-Instalar Cosign              [ok]
+-Extrair site verificado      [ok]
+-Configurar GitHub Pages      [x]
+
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
