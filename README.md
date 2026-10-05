@@ -308,5 +308,18 @@ Nenhum vazamento detectado
 -Extrair site verificado      [ok]
 -Configurar GitHub Pages      [x]
 
+
+#6 commit: ea8f7d0deaee2fff074794537f23afeb061239ec
+GitHub Actions
+Status  Duração Artefatos
+FALHA   2m 18s     2
+
+implementação da assinatura
+cosign sign-blob artifact.tar \
+  --bundle artifact.sigstore.json \
+  --yes
+echo "Assinatura real gerada"
+Não descomentei o passo abaixo por isso quebrou o deploy da página.
+
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
