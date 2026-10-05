@@ -321,5 +321,14 @@ cosign sign-blob artifact.tar \
 echo "Assinatura real gerada"
 Não descomentei o passo abaixo por isso quebrou o deploy da página.
 
+#7 commit: f0304eb4f4446e21c37e67ca8872aad72a0584e3
+GitHub Actions
+Status  Duração Artefatos
+SUCESSO   2m 3s     3
+
+Precisei fazer uma configuração no projeto
+- Settings > Pages > Build and deployment - Source
+  -> selecionar GitHub Actions (não deploy from a branch)
+
 ## URL de Produção
-> Adicione aqui o link do GitHub Pages após o deploy.
+https://xtremeboombox1.github.io/projeto-devsecop-desafio/
